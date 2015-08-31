@@ -1,0 +1,26 @@
+﻿@model MFTWebForm.Models.MFTFormViewModel
+
+<div class="col-md-20 form-group">
+    @Html.LabelFor(m => Model.Events, "Event Type")<br />
+    @Html.DropDownListFor(m => Model.Events, new SelectList(Model.Events, "Id", "EventType"))
+</div>
+
+<div class="col-md-20 form-group">
+    @Html.LabelFor(m => Model.ObservableData, "Observable Data")<br />
+    @Html.DropDownListFor(m => Model.ObservableData, new SelectList(Model.ObservableData, "Id", "ObservableDataType"))
+</div>
+
+<div class="col-md-20 form-group">
+    <div>@Html.LabelFor(m => Model.Groups, "Locations")</div>
+    <div >@Html.DropDownListFor(m => Model.Groups, new SelectList(Model.Groups, "Id", "GroupLocation"))</div>
+</div>
+
+<div class="col-md-20 form-group">
+    @Html.LabelFor(m => Model.Supervisors, "Supervised By")<br />
+    @Html.DropDownListFor(m => Model.Supervisors, new SelectList(Model.Supervisors, "Id", "SupervisorType"))
+</div>
+
+<div class="col-md-20 form-group">
+    @Html.LabelFor(m => Model.SupervisorInitials, "Supervisor Initials")<br />
+    @Html.EditorFor(m => Model.SupervisorInitials)
+</div>

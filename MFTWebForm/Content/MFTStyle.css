@@ -1,0 +1,110 @@
+﻿/**{
+    border:1px solid cornflowerblue;
+}*/
+
+select {
+    max-width: 75%;
+}
+
+.comments {
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 95px;
+    max-height: 175px;
+    margin-bottom: 15px;
+}
+
+.header {
+    margin-top: 0px;
+    height: 120px;
+    font-size: 2em;
+    background-color: #26ada1;
+    color: #abc147;
+}
+
+.login{
+    padding:0px;
+    padding-top:10px;
+    border:2px solid;
+    border-bottom:none;
+    border-color:#608d4e;
+    
+}
+
+.content {
+    background-color: #f8ffed;
+    padding-bottom: 10px;
+}
+
+
+.footer {
+    background-color: #26ada1;
+    color: #abc147;
+    height: 25px;
+}
+
+.btn-green{
+    background-color:#26ada1;
+    color:#f8ffed;
+    font-size:1.5em;
+}
+
+#login-footer, a{
+    margin-top:10px;
+    padding-bottom:5px;
+    background-color:#608d4e;
+    padding-top:5px;
+    color:white;
+}
+
+#login-footer a:hover, #login-footer a:visited{
+    color:#abc147;
+
+}
+
+hr {
+    height: 2px;
+    background-image: linear-gradient(to right, #f8ffed, #26ada1, #f8ffed);
+}
+
+body {
+    background-color: #ced9bc;
+    padding-top: 0px;
+}
+
+/*Custom bootstrap modifiers*/
+.col-xs-20,
+.col-sm-20,
+.col-md-20,
+.col-lg-20 {
+    position: relative;
+    min-height: 1px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.col-xs-20 {
+    width: 20%;
+    float: left;
+}
+
+@media (min-width: 768px) {
+    .col-sm-20 {
+        width: 20%;
+        float: left;
+    }
+}
+
+@media (min-width: 992px) {
+    .col-md-20 {
+        width: 20%;
+        float: left;
+    }
+}
+
+@media (min-width: 1200px) {
+    .col-lg-20 {
+        width: 20%;
+        float: left;
+    }
+}

@@ -1,0 +1,31 @@
+﻿@model MFTWebForm.Models.MFTFormViewModel
+@using MFTWebForm.Helpers
+
+@{
+    ViewBag.Title = "Enter Session Data";
+    Layout = "~/Views/Shared/_Main.cshtml";
+}
+<h2>Enter Session Data</h2>
+
+@using (Html.BeginFormCol())
+{
+    @Html.AntiForgeryToken()
+    <div class="row">
+        @Html.Partial("_DateTimeEntry", Model)
+    </div>
+    <hr />
+    <div class="row">
+        @Html.Partial("_DropDownEntry", Model)
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col-md-12">
+            @Html.LabelFor(m => Model.Comments, "Comments (Optional)")<Br />
+            @Html.TextAreaFor( m => Model.Comments, new {@class = "comments" })
+        </div>
+        <div class="col-md-12">
+            <input class="pull-right btn btn-primary" type="submit" id="studentSubmit" value="Add Entry"/>
+        </div>
+    </div>
+}
+
