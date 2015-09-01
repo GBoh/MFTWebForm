@@ -9,7 +9,12 @@ namespace MFTWebForm.Controllers
 {
     public class SignUpController : Controller
     {
-        private Repository _repo = new Repository();
+        private IRepository _repo;
+
+        public SignUpController(Repository repo)
+        {
+            _repo = repo;
+        }
 
         // GET: SignUp
         public ActionResult Index()

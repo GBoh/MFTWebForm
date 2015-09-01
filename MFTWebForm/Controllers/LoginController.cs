@@ -9,7 +9,12 @@ namespace MFTWebForm.Controllers
 {
     public class LoginController : Controller
     {
-        private Repository _repo = new Repository();
+        private IRepository _repo;
+
+        public LoginController(Repository repo)
+        {
+            _repo = repo;
+        }
 
         // GET: Login
         public ActionResult Index()

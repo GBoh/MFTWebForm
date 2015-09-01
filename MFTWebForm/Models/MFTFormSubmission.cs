@@ -10,7 +10,7 @@ namespace MFTWebForm.Models
         public int Id { get; set; }
         public DateTime? Date { get; set; }
         public DateTime? StartTime { get; set; }
-        public DateTime? ClockHours { get; set; }
+        public string ClockHours { get; set; }
         public string Event { get; set; }
         public string GroupLocation { get; set; }
         public string ObservableData { get; set; }

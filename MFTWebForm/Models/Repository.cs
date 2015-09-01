@@ -1,50 +1,84 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Data.Entity.Validation;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Web;
 using System.Web.Mvc;
 
 namespace MFTWebForm.Models
 {
-    public class Repository
+    public class Repository : IRepository
     {
-        private DataContext _db = new DataContext();
+        private DataContext _db;
 
-        public IList<Event> ListEvents()
+        public Repository(DataContext db)
         {
-            return (from e in _db.Events select e).ToList();
+            _db = db;
         }
 
-        public IList<ObservableData> ListObservableData()
+        ///<summary>
+        ///Generic query method
+        ///</summary>
+        public IQueryable<T> Query<T>() where T : class
         {
-            return (from o in _db.ObservableData select o).ToList();
+            return _db.Set<T>().AsQueryable();
         }
 
-        public IList<Group> ListGroups()
+        /// <summary>
+        /// Find row by id
+        /// </summary>
+        public T Find<T>(params object[] keyValues) where T : class
         {
-            return (from g in _db.Groups select g).ToList();
+            return _db.Set<T>().Find(keyValues);
         }
 
-        public IList<Supervisor> ListSupervisors()
+        /// <summary>
+        /// Add new entity
+        /// </summary>
+        public void Add<T>(T entityToCreate) where T : class
         {
-            return (from s in _db.Supervisors select s).ToList();
+            _db.Set<T>().Add(entityToCreate);
         }
 
-        public void MFTFormSubmit(MFTFormViewModel model)
+        public void Delete<T>(params object[] keyValues) where T : class
         {
-            MFTFormSubmission blankForm = new MFTFormSubmission();
+            _db.Set<T>().Remove(Find<T>(keyValues));
+        }
 
-            blankForm.Date = model.Date;
-            blankForm.StartTime = model.StartTime;
-            blankForm.ClockHours = model.ClockHours;
+        /// <summary>
+        /// Save changes and throw validation exceptions
+        /// </summary>
+        public void SaveChanges()
+        {
+            try
+            {
+                _db.SaveChanges();
+            }
+            catch (DbEntityValidationException dbVal)
+            {
+                var firstError = dbVal.EntityValidationErrors.First().ValidationErrors.First().ErrorMessage;
+                throw new ValidationException(firstError);
+            }
+        }
 
-            blankForm.Event = model.Events.ToString();
-            blankForm.ObservableData = model.ObservableData.ToString();
-            blankForm.GroupLocation = model.Groups.ToString();
-            blankForm.Supervisor = model.Supervisors.ToString();
-            blankForm.SupervisorInitials = model.SupervisorInitials;
+        public void Dispose()
+        {
+            _db.Dispose();
+        }
+    }
 
-            blankForm.Comments = model.Comments;
+    /// <summary>
+    /// This class promotes the Include() method from the entity framework so it
+    /// can be used at a higher layer. You might not want to reference in the Entity Framework
+    /// in your presentation layer.
+    /// </summary>
+    public static class GenericRepositoryExtensions
+    {
+        public static IQueryable<T> Include<T, TProperty>(this IQueryable<T> queryable, Expression<Func<T, TProperty>> relatedEntity) where T : class
+        {
+            return System.Data.Entity.QueryableExtensions.Include<T, TProperty>(queryable, relatedEntity);
         }
     }
 }

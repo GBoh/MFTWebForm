@@ -9,33 +9,37 @@ namespace MFTWebForm.Controllers
 {
     public class InputDataController : Controller
     {
-        private Repository _repo = new Repository();
+        private IRepository _repo;
+
+        public InputDataController(Repository repo)
+        {
+            _repo = repo;
+        }
 
         // GET: InputData
         public ActionResult Index()
         {
             var vm = new MFTFormViewModel();
-            vm.Events = _repo.ListEvents();
-            vm.ObservableData = _repo.ListObservableData();
-            vm.Groups = _repo.ListGroups();
-            vm.Supervisors = _repo.ListSupervisors();
+            vm.Events = _repo.Query<Event>().ToList();
+            vm.ObservableData = _repo.Query<ObservableData>().ToList();
+            vm.Groups = _repo.Query<Group>().ToList();
+            vm.Supervisors = _repo.Query<Supervisor>().ToList();
 
             return View(vm);
-
         }
 
         [HttpPost]
-        public ActionResult Index(MFTFormViewModel collection)
+        public ActionResult Index(MFTFormViewModel model)
         {
 
             try
             {
-                _repo.MFTFormSubmit(collection);
+                _repo.Add<MFTFormSubmission>();
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View(collection);
+                return View(model);
             }
         }
 
