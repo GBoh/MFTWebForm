@@ -146,7 +146,7 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\InputDataController.cs" />
+    <Compile Include="Controllers\StudentsController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\SignUpController.cs" />
     <Compile Include="Global.asax.cs">
@@ -164,6 +164,10 @@
     <Compile Include="Migrations\201509010214297_model-update.cs" />
     <Compile Include="Migrations\201509010214297_model-update.Designer.cs">
       <DependentUpon>201509010214297_model-update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201509011413353_submissionModelUpdate.cs" />
+    <Compile Include="Migrations\201509011413353_submissionModelUpdate.Designer.cs">
+      <DependentUpon>201509011413353_submissionModelUpdate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DatabaseInitializer.cs" />
@@ -223,8 +227,7 @@
     <Content Include="Views\Shared\_DateTimeEntry.cshtml" />
     <Content Include="Views\Shared\_DropDownEntry.cshtml" />
     <Content Include="Views\Shared\_Main.cshtml" />
-    <Content Include="Views\InputData\Create.cshtml" />
-    <Content Include="Views\InputData\Index.cshtml" />
+    <Content Include="Views\Students\InputData.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\SignUp\Index.cshtml" />
   </ItemGroup>
@@ -246,6 +249,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201509010214297_model-update.resx">
       <DependentUpon>201509010214297_model-update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201509011413353_submissionModelUpdate.resx">
+      <DependentUpon>201509011413353_submissionModelUpdate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

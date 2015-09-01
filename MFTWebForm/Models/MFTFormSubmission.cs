@@ -11,10 +11,10 @@ namespace MFTWebForm.Models
         public DateTime? Date { get; set; }
         public DateTime? StartTime { get; set; }
         public string ClockHours { get; set; }
-        public string Event { get; set; }
-        public string GroupLocation { get; set; }
+        public string Events { get; set; }
+        public string Groups { get; set; }
         public string ObservableData { get; set; }
-        public string Supervisor { get; set; }
+        public string Supervisors { get; set; }
         public string SupervisorInitials { get; set; }
         public string Comments { get; set; }
     }

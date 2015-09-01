@@ -7,17 +7,17 @@ using System.Web.Mvc;
 
 namespace MFTWebForm.Controllers
 {
-    public class InputDataController : Controller
+    public class StudentsController : Controller
     {
         private IRepository _repo;
 
-        public InputDataController(Repository repo)
+        public StudentsController(Repository repo)
         {
             _repo = repo;
         }
 
         // GET: InputData
-        public ActionResult Index()
+        public ActionResult InputData()
         {
             var vm = new MFTFormViewModel();
             vm.Events = _repo.Query<Event>().ToList();
@@ -29,12 +29,13 @@ namespace MFTWebForm.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(MFTFormViewModel model)
+        public ActionResult InputData(MFTFormSubmission model)
         {
 
             try
             {
-                _repo.Add<MFTFormSubmission>();
+                _repo.Add<MFTFormSubmission>(model);
+                _repo.SaveChanges();
                 return RedirectToAction("Index");
             }
             catch
