@@ -1,4 +1,4 @@
-﻿@model MFTWebForm.Models.MFTFormViewModel
+﻿@model MFTWebForm.Models.Presentation.MFTFormViewModel
 
 <div class="col-md-20 form-group">
     @Html.LabelFor(m => Model.Events, "Event Type")<br />
@@ -12,7 +12,7 @@
 
 <div class="col-md-20 form-group">
     <div>@Html.LabelFor(m => Model.Groups, "Locations")</div>
-    <div >@Html.DropDownListFor(m => Model.Groups, new SelectList(Model.Groups, "Id", "GroupLocation"))</div>
+    <div>@Html.DropDownListFor(m => Model.Groups, new SelectList(Model.Groups, "Id", "GroupLocation"))</div>
 </div>
 
 <div class="col-md-20 form-group">
