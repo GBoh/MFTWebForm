@@ -7,11 +7,11 @@ using System.Linq;
 using System.Web;
 
 namespace MFTWebForm.Models.Services {
-    public class AccountService {
+    public class FormService {
 
         private IRepository _repo;
 
-        public AccountService(IRepository repo) {
+        public FormService(IRepository repo) {
             _repo = repo;
         }
 

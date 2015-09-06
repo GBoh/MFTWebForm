@@ -8,6 +8,7 @@ namespace MFTWebForm.Models.Infrastructure {
     public class NinjectInfrastructureConfig {
         public static void RegisterServices(IKernel kernel) {
             kernel.Bind<IRepository>().To<Repository>();
+            //kernel.Bind<ApplicationUser>().ToSelf();
             //kernel.Bind<ApplicationDbContext>().ToSelf();
         }
     }

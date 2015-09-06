@@ -10,7 +10,7 @@ namespace MFTWebForm.Models.Services {
         public static void RegisterServices(IKernel kernel) {
 
             NinjectInfrastructureConfig.RegisterServices(kernel);
-            kernel.Bind<AccountService>().ToSelf();
+            kernel.Bind<FormService>().ToSelf();
         }
     }
 }

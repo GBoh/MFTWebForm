@@ -16,13 +16,11 @@ namespace MFTWebForm.Controllers {
     [Authorize]
     public class AccountController : Controller {
 
-        private AccountService _service;
 
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
-        public AccountController(AccountService service) {
-            _service = service;
+        public AccountController() {
         }
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager) {
