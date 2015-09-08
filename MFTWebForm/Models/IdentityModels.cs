@@ -3,7 +3,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
-using MFTWebForm.Models.Domain;
+using MFTWebForm.Domain;
 
 namespace MFTWebForm.Models {
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit http://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
@@ -29,6 +29,7 @@ namespace MFTWebForm.Models {
         public IDbSet<ObservableData>ObservableData { get; set; }
         public IDbSet<Supervisor>Supervisors { get; set; }
         public IDbSet<MFTFormSubmission>MFTFormSubmissions { get; set; }
+        public IDbSet<Term> Terms { get; set; }
 
 
         public static ApplicationDbContext Create() {

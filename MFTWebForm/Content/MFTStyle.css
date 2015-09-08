@@ -3,7 +3,7 @@
 }*/
 
 select {
-    max-width: 75%;
+    max-width: 100%;
 }
 
 .comments {
@@ -43,13 +43,13 @@ select {
     height: 25px;
 }
 
-.btn-green{
+.btn-green, .btn-green a{
     background-color:#26ada1;
     color:#f8ffed;
-    font-size:1.5em;
+    /*font-size:1.5em;*/
 }
 
-#login-footer, a{
+#login-footer a{
     margin-top:10px;
     padding-bottom:5px;
     background-color:#608d4e;

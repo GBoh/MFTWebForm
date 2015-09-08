@@ -1,9 +1,10 @@
-﻿using System;
+﻿using MFTWebForm.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace MFTWebForm.Models.Domain {
+namespace MFTWebForm.Domain {
     public class MFTFormSubmission {
         public int Id { get; set; }
         public DateTime? Date { get; set; }
@@ -15,5 +16,10 @@ namespace MFTWebForm.Models.Domain {
         public string Supervisor { get; set; }
         public string SupervisorInitials { get; set; }
         public string Comments { get; set; }
+
+        public string UserName { get; set; }
+        public Term Term { get; set; }
+
+
     }
 }

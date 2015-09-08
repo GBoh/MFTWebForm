@@ -1,11 +1,12 @@
-﻿using System;
+﻿using MFTWebForm.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Data.Entity.Validation;
 using System.Linq;
 using System.Web;
 
-namespace MFTWebForm.Models.Infrastructure {
+namespace MFTWebForm.Infrastructure {
     public class Repository : IRepository {
         private ApplicationDbContext _db;
 

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace MFTWebForm.Models.Services {
-    public class GroupDTO {
+namespace MFTWebForm.Domain {
+    public class Supervisor {
+        public int Id { get; set; }
         public string Name { get; set; }
-        public IList<ApplicationUser> Users { get; set; }
     }
 }

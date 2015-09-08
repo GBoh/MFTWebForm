@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace MFTWebForm.Models.Infrastructure {
+namespace MFTWebForm.Infrastructure {
     public interface IRepository : IDisposable {
         void Add<T>(T entityToCreate) where T : class;
         void Delete<T>(params object[] keyValues) where T : class;
